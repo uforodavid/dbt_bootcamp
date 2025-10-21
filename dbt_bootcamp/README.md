@@ -1,4 +1,4 @@
-# dbt Bootcamp: Brazilian E-Commerce Analytics
+# Young Data Professionals dbt Bootcamp: Brazilian E-Commerce Analytics
 
 A comprehensive dbt project using the Brazilian E-Commerce (Olist) dataset to demonstrate modern data transformation practices and analytics engineering patterns.
 
@@ -13,14 +13,243 @@ A comprehensive dbt project using the Brazilian E-Commerce (Olist) dataset to de
 - Complete order lifecycle including payments, reviews, and logistics
 
 **Raw Tables:**
-- `olist_customers_dataset` - Customer information and location
-- `olist_orders_dataset` - Order status and timestamps
-- `olist_order_items_dataset` - Items within orders
-- `olist_order_payments_dataset` - Payment transactions
-- `olist_order_reviews_dataset` - Customer reviews and ratings
-- `olist_products_dataset` - Product catalog
-- `olist_sellers_dataset` - Seller information
-- `olist_geolocation_dataset` - Brazilian zip codes and coordinates
+- `olist_customers` - Customer information and location
+- `olist_orders` - Order status and timestamps
+- `olist_order_items` - Items within orders
+- `olist_order_payments` - Payment transactions
+- `olist_order_reviews` - Customer reviews and ratings
+- `olist_products` - Product catalog
+- `olist_sellers` - Seller information
+
+## 🚀 Getting Started
+
+### Prerequisites
+- DWH
+- dbt Core or dbt Cloud
+- Python 3.10+
+- Git
+
+### Setup Instructions
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/uforodavid/dbt_bootcamp.git
+cd dbt_bootcamp
+```
+
+2. **Install dbt**
+```bash
+pip install dbt-(your-database-adapter-name
+```
+
+3. **Configure profiles.yml**
+```bash
+dbt debug
+```
+to check connection status
+
+5. **Load raw data into Snowflake**
+```bash
+dbt seed
+```
+to load datasets into your datawarehouse
+
+
+## 📈 Expected Outcomes
+
+By completing this bootcamp, you will:
+- Understand dbt fundamentals and best practices
+- Build a production-ready dimensional model
+- Implement comprehensive testing and documentation
+- Create business-ready analytical models
+- Learn performance optimization techniques
+- Gain hands-on experience with real-world data scenarios
+
+
+## 📚 Bootcamp Curriculum Structure
+
+## 🗓️ Day 1: dbt Fundamentals (2 hours)
+**Level:** Beginner  
+**Goal:** Understand dbt basics and build your first models
+
+### Module 1.1: Welcome to dbt Fundamentals (15 min)
+- What is dbt and why use it?
+- Analytics engineering workflow
+- Introduction to the Brazilian E-Commerce dataset
+- Bootcamp overview and learning objectives
+
+### Module 1.2: Analytics Development Lifecycle (20 min)
+- The modern data stack
+- Understanding the ADLC (Analyze → Design → Load → Clean → Test)
+- How dbt fits in the data workflow
+- Version control with Git basics
+
+### Module 1.3: Set Up dbt (25 min)
+**Hands-on Lab:**
+- Install dbt Core or set up dbt Cloud
+- Configure `profiles.yml`
+- Initialize your dbt project
+- Understand project structure (`dbt_project.yml`, folders)
+- Run your first `dbt debug` and `dbt run`
+
+### Module 1.4: Sources (25 min)
+**Hands-on Lab:**
+- Defining sources in `_sources.yml`
+- Using `{{ source('schema', 'table') }}`
+- Source freshness checks
+- Building complete staging layer for all 8 tables
+- Understanding staging best practices
+
+### Module 1.5: Models (35 min)
+**Hands-on Lab:**
+- What are models and materializations?
+- Building your first staging model: `stg_olist__customers.sql`
+- Using CTEs and SELECT statements
+- Naming conventions and folder structure
+- Building `stg_olist__orders.sql` and `stg_olist__order_items.sql`
+- Understanding refs: `{{ ref('model_name') }}`
+- Run models with `dbt run` and `dbt run --select model_name`
+
+**Day 1 Deliverable:** Complete staging layer with 8 staging models
+
+---
+
+## 🗓️ Day 2: Testing, Documentation & Modeling (2 hours)
+**Level:** Beginner to Intermediate  
+**Goal:** Ensure data quality and build intermediate models
+
+### Module 2.1: Data Tests (35 min)
+**Hands-on Lab:**
+- Introduction to data testing philosophy
+- Schema tests: unique, not_null, accepted_values, relationships
+- Writing tests in `.yml` files
+- Running tests with `dbt test`
+- Building custom data tests (e.g., `assert_positive_order_value.sql`)
+- Installing and using dbt_utils package
+- Advanced tests: `expression_is_true`, `recency`
+
+### Module 2.2: Documentation (30 min)
+**Hands-on Lab:**
+- Why documentation matters
+- Documenting models and columns in `.yml` files
+- Adding descriptions and metadata
+- Generating docs: `dbt docs generate`
+- Viewing docs: `dbt docs serve`
+- Understanding the DAG (Directed Acyclic Graph)
+- Using doc blocks for rich documentation
+
+### Module 2.3: Intermediate Models (30 min)
+**Hands-on Lab:**
+- Building `int_olist__order_enriched.sql` (joining orders + items + payments)
+- Using window functions for customer metrics
+- Aggregating data at different grains
+- Creating reusable intermediate models
+- Best practices for the intermediate layer
+
+### Module 2.4: Dimensional Modeling Basics (25 min)
+- Introduction to star schema
+- Fact vs dimension tables
+- Slowly changing dimensions (SCD) concepts
+- Planning our marts layer structure
+
+**Day 2 Deliverable:** Tested and documented staging layer + 3 intermediate models
+
+---
+
+## 🗓️ Day 3: Advanced Modeling & Deployment (2 hours)
+**Level:** Intermediate to Advanced  
+**Goal:** Build production-ready marts and understand deployment
+
+### Module 3.1: Building Fact Tables (35 min)
+**Hands-on Lab:**
+- Designing `fct_orders.sql` 
+- Choosing the right grain (one row per order)
+- Adding calculated fields (delivery days, on-time flags)
+- Implementing business logic
+- Testing fact table integrity
+- Custom target schemas with macros
+
+### Module 3.2: Building Dimension Tables (35 min)
+**Hands-on Lab:**
+- Creating `dim_customers.sql` with aggregated metrics
+- Building `dim_products.sql` and `dim_sellers.sql`
+- Creating `dim_geography.sql` for location analysis
+- Implementing slowly changing dimensions (SCD Type 2) - theory and basic implementation
+
+### Module 3.3: Analyses and Seeds (15 min)
+**Hands-on Lab:**
+- Understanding the analyses folder
+- Ad-hoc analysis queries
+- Using seeds for reference data
+- Loading `payment_type_mapping.csv` and `state_regions.csv`
+- Referencing seeds in models
+
+### Module 3.4: Deployment Fundamentals (35 min)
+**Hands-on Lab:**
+- Understanding environments (dev vs prod)
+- Configuring target schemas
+- Using environment variables
+- Introduction to dbt Cloud jobs (or dbt Cloud alternative with CLI)
+- Running production jobs
+- Scheduling basics
+
+**Day 3 Deliverable:** Complete dimensional model (1 fact + 4 dimensions) ready for production
+
+---
+
+## 🗓️ Day 4: Advanced Concepts & Production Practices (2 hours)
+**Level:** Advanced  
+**Goal:** Master advanced dbt features for production environments
+
+### Module 4.1: Jinja, Macros, Exposures, and Packages (40 min)
+**Hands-on Lab:**
+- Introduction to Jinja templating
+- Using variables and conditionals
+- Writing your first macro: `calculate_rfm_score()`
+- Creating reusable macros for business logic
+- Using dbt packages (dbt_utils, dbt_expectations)
+- Package management with `packages.yml`
+- Defining downstream dependencies
+- Documenting BI dashboards
+
+### Module 4.2: Incremental Models (35 min)
+**Hands-on Lab:**
+- Why incremental models matter
+- Converting `fct_orders` to incremental
+- Understanding `unique_key` and `on_schema_change`
+- Using `is_incremental()` macro
+- Strategies: append, merge, delete+insert
+- Testing incremental models
+- Backfilling data
+
+### Module 4.3: Snapshots (20 min)
+**Hands-on Lab:**
+- Understanding slowly changing dimensions with snapshots
+- Creating a snapshot for product prices or order status
+- Snapshot strategies: timestamp vs check
+- Running snapshots
+- Querying snapshot tables
+- Use cases for snapshots
+
+### Module 4.4: Advanced Testing & Orchestration (15 min)
+- Custom schema tests
+- Test configurations and severity
+- Understanding orchestration concepts
+- Job scheduling strategies
+- CI/CD basics with GitHub Actions
+- Monitoring and alerting
+- Setting up webhooks in dbt Cloud
+- Triggering downstream workflows
+
+### Module 4.5: Materialization Fundamentals (10 min)
+- Understanding materializations: table, view, incremental, ephemeral
+- When to use each materialization
+- Performance considerations
+- Cost optimization strategies
+
+**Day 4 Deliverable:** Production-ready dbt project with incremental models, snapshots, and custom macros
+
+---
 
 ## 🎯 Business Questions We Can Answer
 
@@ -273,46 +502,6 @@ Columns:
 - slowest_delivery_days
 ```
 
-## 🔧 dbt Features Demonstrated
-
-### Testing Strategy
-
-```yaml
-# Example from models/marts/core/fct_orders.yml
-models:
-  - name: fct_orders
-    tests:
-      - dbt_utils.expression_is_true:
-          expression: "total_order_value >= 0"
-    columns:
-      - name: order_id
-        data_tests:
-          - unique
-          - not_null
-      - name: customer_id
-        data_tests:
-          - not_null
-          - relationships:
-              to: ref('dim_customers')
-              field: customer_id
-      - name: delivered_customer_date
-        data_tests:
-          - dbt_utils.expression_is_true:
-              expression: ">= order_date"
-```
-
-**Test Types:**
-- Schema tests (unique, not_null, accepted_values, relationships)
-- Data tests (custom SQL queries)
-- dbt_utils tests (expression_is_true, recency, etc.)
-
-### Documentation
-
-- Comprehensive `.yml` files for each layer
-- Column-level descriptions
-- Model-level descriptions with business context
-- Data lineage visualization with `dbt docs generate`
-
 ### Macros
 
 ```
@@ -328,36 +517,6 @@ Example macro usage for RFM calculation:
 {{ calculate_rfm_score('recency_days', 'frequency', 'monetary_value') }}
 ```
 
-### Incremental Models
-
-For performance optimization on large fact tables:
-
-```sql
--- models/marts/core/fct_orders.sql
-{{
-    config(
-        materialized='incremental',
-        unique_key='order_id',
-        on_schema_change='fail'
-    )
-}}
-
-SELECT ...
-FROM {{ ref('int_olist__order_enriched') }}
-{% if is_incremental() %}
-    WHERE order_date > (SELECT MAX(order_date) FROM {{ this }})
-{% endif %}
-```
-
-### Seeds
-
-Reference data for enrichment:
-
-```
-seeds/
-├── payment_type_mapping.csv
-├── state_regions.csv
-└── product_category_translations.csv
 ```
 
 ### Packages
@@ -373,127 +532,6 @@ packages:
   - package: dbt-labs/codegen
     version: 0.12.0
 ```
-
-## 📚 Bootcamp Curriculum Modules
-
-### Module 1: Introduction to dbt & Setup
-- dbt installation and project initialization
-- Connecting to Database
-- Understanding project structure
-- Source configuration
-
-### Module 2: Staging Models
-- Source freshness checks
-- Basic transformations
-- Naming conventions
-- CTEs and select statements
-
-### Module 3: Intermediate Models
-- Joining tables
-- Window functions
-- Aggregations
-- Best practices for reusability
-
-### Module 4: Dimensional Modeling
-- Star schema concepts
-- Building fact tables
-- Creating dimension tables
-- Slowly changing dimensions (SCD Type 2)
-
-### Module 5: Business Logic in Marts
-- Customer analytics
-- Sales reporting
-- KPI calculations
-- Domain-specific modeling
-
-### Module 6: Testing & Data Quality
-- Schema tests
-- Data tests
-- Custom tests
-- Testing strategy
-
-### Module 7: Documentation
-- Model documentation
-- Column descriptions
-- dbt docs generate and serve
-- Exposures
-
-### Module 8: Advanced Features
-- Incremental models
-- Snapshots
-- Macros and Jinja
-- Packages
-- Setting Custom Schema
-
-### Module 9: Performance & Optimization
-- Query optimization
-- Materialization strategies
-- Partitioning and clustering
-- Cost management
-
-### Module 10: Production Deployment
-- Environments (dev/prod)
-- CI/CD with dbt Cloud or GitHub Actions
-- Orchestration
-- Monitoring and alerting
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Database/Datawarehouse
-- dbt Core or dbt Cloud
-- Python 3.8+
-- Git
-
-### Setup Instructions
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/uforodavid/ydp_dbt_bootcamp.git
-cd ydp_dbt_bootcamp
-```
-
-2. **Install dbt**
-```bash
-pip install dbt-snowflake
-```
-
-3. **Configure profiles.yml**
-```yaml
-dbt_olist:
-  target: dev
-  outputs:
-    dev:
-      type: snowflake
-      account: your_account
-      user: your_username
-      password: your_password
-      role: your_role
-      database: olist_dev
-      warehouse: your_warehouse
-      schema: dbt_your_name
-      threads: 4
-```
-
-4. **Run dbt**
-```bash
-dbt deps           # Install packages
-dbt seed           # Load seed files
-dbt build           # Build models
-dbt test           # Run tests
-dbt docs generate  # Generate documentation
-dbt docs serve     # View documentation
-```
-
-## 📈 Expected Outcomes
-
-By completing this bootcamp, you will:
-- Understand dbt fundamentals and best practices
-- Build a production-ready dimensional model
-- Implement comprehensive testing and documentation
-- Create business-ready analytical models
-- Learn performance optimization techniques
-- Gain hands-on experience with real-world data scenarios
 
 ## 🤝 Contributing
 
