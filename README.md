@@ -1,4 +1,4 @@
-# dbt Bootcamp: Brazilian E-Commerce Analytics
+# Young Data Professionals dbt Bootcamp: Brazilian E-Commerce Analytics
 
 A comprehensive dbt project using the Brazilian E-Commerce (Olist) dataset to demonstrate modern data transformation practices and analytics engineering patterns.
 
