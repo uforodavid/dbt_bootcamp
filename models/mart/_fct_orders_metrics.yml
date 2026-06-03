@@ -1,0 +1,143 @@
+models:
+  - name: fct_orders
+    semantic_model:
+      enabled: true
+    agg_time_dimension: order_date
+    columns:
+      - name: unique_field
+        entity:
+          type: primary
+          name: order_item
+
+      - name: order_id
+        entity:
+          type: foreign
+          name: order
+
+      - name: customer_id
+        entity:
+          type: foreign
+          name: customer
+
+      - name: seller_id
+        entity:
+          type: foreign
+          name: seller
+
+      - name: product_id
+        entity:
+          type: foreign
+          name: product
+
+      - name: order_date
+        granularity: day
+        dimension:
+          type: time
+
+      - name: order_status
+        dimension:
+          type: categorical
+
+      - name: delivery_performance_category
+        dimension:
+          type: categorical
+
+      - name: is_on_time
+        dimension:
+          type: categorical
+
+      - name: is_delayed
+        dimension:
+          type: categorical
+
+    metrics:
+      - name: total_revenue
+        label: Total Revenue
+        description: Total payment value across all orders.
+        type: simple
+        agg: sum
+        expr: payment_value
+
+      - name: total_orders
+        label: Total Orders
+        description: Number of distinct orders placed.
+        type: simple
+        agg: count_distinct
+        expr: order_id
+
+      - name: total_order_items
+        label: Total Order Items
+        description: Total number of order line items.
+        type: simple
+        agg: count
+        expr: order_item_id
+
+      - name: total_price
+        label: Total Price
+        description: Sum of product prices before freight.
+        type: simple
+        agg: sum
+        expr: price
+
+      - name: total_freight
+        label: Total Freight
+        description: Sum of freight costs.
+        type: simple
+        agg: sum
+        expr: freight_value
+
+      - name: avg_order_value
+        label: Average Order Value
+        description: Average revenue per order item.
+        type: simple
+        agg: average
+        expr: payment_value
+
+      - name: avg_delivery_days
+        label: Average Delivery Days
+        description: Average days from order placement to customer delivery.
+        type: simple
+        agg: average
+        expr: total_delivery_days
+
+      - name: avg_delay_days
+        label: Average Delay Days
+        description: Average delivery delay in days (negative means early).
+        type: simple
+        agg: average
+        expr: delivery_delay_days
+
+      - name: on_time_deliveries
+        label: On-Time Deliveries
+        description: Count of order items delivered on time.
+        type: simple
+        agg: sum_boolean
+        expr: is_on_time
+
+      - name: delayed_deliveries
+        label: Delayed Deliveries
+        description: Count of order items delivered late.
+        type: simple
+        agg: sum_boolean
+        expr: is_delayed
+
+      - name: on_time_delivery_rate
+        label: On-Time Delivery Rate
+        description: Percentage of order items delivered on time.
+        type: ratio
+        numerator: on_time_deliveries
+        denominator: total_order_items
+
+      - name: delay_rate
+        label: Delay Rate
+        description: Percentage of order items that were delayed.
+        type: ratio
+        numerator: delayed_deliveries
+        denominator: total_order_items
+
+      - name: freight_ratio
+        label: Freight Ratio
+        description: Freight cost as a proportion of total revenue.
+        type: ratio
+        numerator: total_freight
+        denominator: total_revenue

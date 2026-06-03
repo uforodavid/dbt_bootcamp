@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('olist', 'order_payments') }}
+    select * from {{ source('olist', 'olist_order_payments') }}
 
 ),
 

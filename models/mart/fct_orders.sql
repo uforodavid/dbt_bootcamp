@@ -15,12 +15,12 @@ final as (
         order_enriched.order_item_id,
         order_enriched.product_id,
         order_enriched.seller_id,
-        order_enrichedcustomer_id,
+        order_enriched.customer_id,
         order_enriched.price,
         order_enriched.freight_value,
         order_enriched.order_date,
         order_enriched.order_status,
-        order_enriched.payment_value
+        order_enriched.payment_value,
         
         delivery_metrics.approved_at,
         delivery_metrics.carrier_delivery_date,

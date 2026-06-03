@@ -10,12 +10,12 @@ models:
         description: This is the description.
 
       - name: geolocation_lat
-        data_type: number
+        data_type: FLOAT
         description: >
           This is the latitude stuff.
 
       - name: geolocation_lng
-        data_type: number
+        data_type: FLOAT
         description: ""
 
       - name: geolocation_city

@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('olist', 'geolocation') }}
+    select * from {{ source('olist', 'olist_geolocation') }}
 
 ),
 

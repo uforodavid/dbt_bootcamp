@@ -41,27 +41,27 @@ models:
         description: ""
 
       - name: days_to_approval
-        data_type: number
+        data_type: NUMBER(9,0)
         description: ""
 
       - name: days_to_carrier
-        data_type: number
+        data_type: NUMBER(9,0)
         description: ""
 
       - name: days_in_transit
-        data_type: number
+        data_type: NUMBER(9,0)
         description: ""
 
       - name: total_delivery_days
-        data_type: number
+        data_type: NUMBER(9,0)
         description: ""
 
       - name: estimated_delivery_days
-        data_type: number
+        data_type: NUMBER(9,0)
         description: ""
 
       - name: delivery_delay_days
-        data_type: number
+        data_type: NUMBER(9,0)
         description: ""
 
       - name: is_on_time

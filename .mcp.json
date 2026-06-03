@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "dbt": {
+      "type": "stdio",
+      "command": "/Users/davideffiong/miniconda3/envs/work_env/bin/uvx",
+      "args": ["dbt-mcp"],
+      "env": {
+        "DBT_PROJECT_DIR": "/Users/davideffiong/Desktop/my_proj/dbt_world/dbt_bootcamp",
+        "DBT_PROFILES_DIR": "/Users/davideffiong/.dbt",
+        "DBT_PATH": "/Users/davideffiong/miniconda3/envs/work_env/bin/dbt"
+      }
+    }
+  }
+}

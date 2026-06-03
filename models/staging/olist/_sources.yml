@@ -2,22 +2,22 @@ version: 2
 
 sources:
   - name: olist # custom name or database name
-    database: warehouse_stg
+    database: transformation
     schema: dbt_dev
     description: 'This is the sales data from Olist'
     tables:
-      - name: customers
-      - name: geolocation
-      - name: order_items
-      - name: order_payments
-      - name: order_reviews
-      - name: orders
+      - name: olist_customers
+      - name: olist_geolocation
+      - name: olist_order_items
+      - name: olist_order_payments
+      - name: olist_order_reviews
+      - name: olist_orders
+      - name: olist_sellers
+      - name: olist_products
+      - name: product_category_name_translation
         config:
+          loaded_at_field: order_purchase_timestamp
           freshness: # changed to config in v1.9
             error_after:
               count: 24
               period: hour
-        loaded_at_field: order_purchase_timestamp
-      - name: product_category
-      - name: products
-      - name: sellers

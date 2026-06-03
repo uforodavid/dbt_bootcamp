@@ -14,19 +14,19 @@ models:
           - not_null
 
       - name: total_orders
-        data_type: number
+        data_type: NUMBER(18,0)
         description: ""
 
       - name: total_revenue
-        data_type: number
+        data_type: FLOAT
         description: ""
 
       - name: avg_order_value
-        data_type: number
+        data_type: FLOAT
         description: ""
 
       - name: distinct_products_purchased
-        data_type: number
+        data_type: NUMBER(18,0)
         description: ""
 
       - name: first_order_date
@@ -42,9 +42,9 @@ models:
         description: ""
 
       - name: tenure_days
-        data_type: number
+        data_type: NUMBER(9,0)
         description: ""
 
       - name: days_since_last_order
-        data_type: number
+        data_type: NUMBER(9,0)
         description: ""

@@ -1,17 +1,17 @@
 packages:
-  - name: dbt_expectations
-    package: metaplane/dbt_expectations
-    version: 0.10.9
-  - name: dbt_utils
-    package: dbt-labs/dbt_utils
-    version: 1.3.2
-  - name: codegen
-    package: dbt-labs/codegen
-    version: 0.13.1
-  - name: dbt_external_tables
-    package: dbt-labs/dbt_external_tables
-    version: 0.11.1
-  - name: dbt_date
-    package: godatadriven/dbt_date
-    version: 0.17.0
-sha1_hash: 76523f45428aae5480927286408fbd5405d0edb2
+- package: dbt-labs/codegen
+  name: codegen
+  version: 0.13.1
+- package: godatadriven/dbt_date
+  name: dbt_date
+  version: 0.17.2
+- package: metaplane/dbt_expectations
+  name: dbt_expectations
+  version: 0.10.9
+- package: dbt-labs/dbt_external_tables
+  name: dbt_external_tables
+  version: 0.11.1
+- package: dbt-labs/dbt_utils
+  name: dbt_utils
+  version: 1.3.2
+sha1_hash: 06b2518744200b49a140f9512575e647820ad372

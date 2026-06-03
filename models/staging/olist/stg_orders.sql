@@ -1,6 +1,6 @@
 with order_data as (
     select *
-    from {{ source('olist', 'orders')}}
+    from {{ source('olist', 'olist_orders')}}
 )
 
 

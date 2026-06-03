@@ -22,5 +22,5 @@ models:
         description: ""
 
       - name: payment_value
-        data_type: number
+        data_type: FLOAT
         description: ""

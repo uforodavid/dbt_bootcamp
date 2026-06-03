@@ -34,11 +34,11 @@ models:
         description: ""
 
       - name: price
-        data_type: number
+        data_type: FLOAT
         description: ""
 
       - name: freight_value
-        data_type: number
+        data_type: FLOAT
         description: ""
 
       - name: order_date
@@ -58,5 +58,5 @@ models:
         description: ""
 
       - name: payment_value
-        data_type: number
+        data_type: FLOAT
         description: ""
