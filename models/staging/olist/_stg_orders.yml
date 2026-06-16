@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Sales record from Olist"
+    columns:
+      - name: order_id
+        description: "Unique order identifier"
+        data_tests:
+          - unique
+          - not_null
+          - accepted_values:
+              arguments: # available in v1.10.5 and higher. Older versions can set the <argument_name> as the top-level property.
+                values: ['delivered', 'unavailable', 'canceled', 'created','invoiced', 'approved','shipped','processing']
+                severity: warn
+      - name: customer_id
+        description: "Unique identifier for customers"

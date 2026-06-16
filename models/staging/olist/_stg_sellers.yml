@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_sellers
+    description: ""
+    columns:
+      - name: seller_id
+        data_type: varchar
+        description: ""
+
+      - name: seller_zip_code_prefix
+        data_type: number
+        description: ""
+
+      - name: seller_city
+        data_type: varchar
+        description: ""
+
+      - name: seller_state
+        data_type: varchar
+        description: ""

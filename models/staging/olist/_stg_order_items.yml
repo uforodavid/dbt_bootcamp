@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: >
+      This is order items. 
+    columns:
+      - name: order_id
+        data_type: varchar
+        description: ""
+        data_tests:
+          - not_null
+
+      - name: unique_field
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+
+      - name: product_id
+        data_type: varchar
+        description: ""
+
+      - name: seller_id
+        data_type: varchar
+        description: ""
+
+      - name: shipping_limit_date
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: price
+        data_type: FLOAT
+        description: ""
+
+      - name: freight_value
+        data_type: FLOAT
+        description: ""

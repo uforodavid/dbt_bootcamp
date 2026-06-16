@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_product_category
+    description: ""
+    columns:
+      - name: product_category_name
+        data_type: varchar
+        description: ""
+
+      - name: product_category_name_english
+        data_type: varchar
+        description: ""

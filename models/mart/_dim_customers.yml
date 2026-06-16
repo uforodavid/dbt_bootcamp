@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: > 
+      Dim customers
+    columns:
+      - name: customer_id
+        data_type: varchar
+        description: >
+          Customer ID
+        data_tests:
+          - unique
+          - not_null
+
+      - name: total_orders
+        data_type: number
+        description: ""
+
+      - name: total_revenue
+        data_type: number
+        description: ""
+
+      - name: avg_order_value
+        data_type: number
+        description: ""
+
+      - name: distinct_products_purchased
+        data_type: number
+        description: ""
+
+      - name: first_order_date
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: last_order_date
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: is_repeat_customer
+        data_type: boolean
+        description: ""
+
+      - name: tenure_days
+        data_type: number
+        description: ""
+
+      - name: days_since_last_order
+        data_type: number
+        description: ""

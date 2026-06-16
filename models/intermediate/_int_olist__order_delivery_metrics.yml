@@ -1,0 +1,85 @@
+version: 2
+
+models:
+  - name: int_olist__order_delivery_metrics
+    description: >
+    columns:
+      - name: order_id
+        data_type: varchar
+        description: >
+          Order ID
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        data_type: varchar
+        description: ""
+
+      - name: order_status
+        data_type: varchar
+        description: ""
+
+      - name: order_date
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: approved_at
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: carrier_delivery_date
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: customer_delivery_date
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: estimated_delivery_date
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: days_to_approval
+        data_type: NUMBER(9,0)
+        description: ""
+
+      - name: days_to_carrier
+        data_type: NUMBER(9,0)
+        description: ""
+
+      - name: days_in_transit
+        data_type: NUMBER(9,0)
+        description: ""
+
+      - name: total_delivery_days
+        data_type: NUMBER(9,0)
+        description: ""
+
+      - name: estimated_delivery_days
+        data_type: NUMBER(9,0)
+        description: ""
+
+      - name: delivery_delay_days
+        data_type: NUMBER(9,0)
+        description: ""
+
+      - name: is_on_time
+        data_type: boolean
+        description: ""
+
+      - name: is_delayed
+        data_type: boolean
+        description: ""
+
+      - name: is_delivered
+        data_type: boolean
+        description: ""
+
+      - name: is_canceled
+        data_type: boolean
+        description: ""
+
+      - name: delivery_performance_category
+        data_type: varchar
+        description: ""

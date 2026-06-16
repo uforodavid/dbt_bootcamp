@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: stg_order_reviews
+    description: ""
+    columns:
+      - name: review_id
+        data_type: varchar
+        description: ""
+
+      - name: order_id
+        data_type: varchar
+        description: ""
+
+      - name: review_score
+        data_type: number
+        description: ""
+
+      - name: review_comment_title
+        data_type: varchar
+        description: ""
+
+      - name: review_comment_message
+        data_type: varchar
+        description: ""
+
+      - name: review_creation_date
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: review_answer_timestamp
+        data_type: timestamp_ntz
+        description: ""

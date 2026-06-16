@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "This is the reaw customers table"
+    columns:
+      - name: CUSTOMER_ZIP_CODE_PREFIX
+        description: "Customer Zip code"
+      - name: customer_id
+        description: "Unique Identifier for our customers"
+        data_tests:
+          - unique
+          - not_null

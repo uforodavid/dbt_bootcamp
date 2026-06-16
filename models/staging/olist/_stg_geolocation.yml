@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_geolocation
+    description: >
+      This is whatever i like this to be. 
+    columns:
+      - name: geolocation_zip_code_prefix
+        data_type: number
+        description: This is the description.
+
+      - name: geolocation_lat
+        data_type: FLOAT
+        description: >
+          This is the latitude stuff.
+
+      - name: geolocation_lng
+        data_type: FLOAT
+        description: ""
+
+      - name: geolocation_city
+        data_type: varchar
+        description: ""
+
+      - name: geolocation_state
+        data_type: varchar
+        description: ""

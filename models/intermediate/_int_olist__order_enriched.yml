@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: int_olist__order_enriched
+    description: > 
+      Int order enriched model
+    columns:
+      - name: unique_field
+        data_type: varchar
+        description: >
+          Unique surrogate key
+        data_tests:
+          - unique
+          - not_null
+
+      - name: order_id
+        data_type: varchar
+        description: ""
+
+      - name: order_item_id
+        data_type: number
+        description: ""
+
+      - name: product_id
+        data_type: varchar
+        description: ""
+
+      - name: seller_id
+        data_type: varchar
+        description: ""
+
+      - name: customer_id
+        data_type: varchar
+        description: ""
+
+      - name: price
+        data_type: FLOAT
+        description: ""
+
+      - name: freight_value
+        data_type: FLOAT
+        description: ""
+
+      - name: order_date
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: order_status
+        data_type: varchar
+        description: ""
+
+      - name: payment_type
+        data_type: varchar
+        description: ""
+
+      - name: payment_installments
+        data_type: number
+        description: ""
+
+      - name: payment_value
+        data_type: FLOAT
+        description: ""

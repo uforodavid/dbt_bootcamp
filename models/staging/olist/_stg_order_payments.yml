@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_order_payments
+    description: >
+      Contains order payments
+    columns:
+      - name: order_id
+        data_type: varchar
+        description: ""
+
+      - name: payment_sequential
+        data_type: number
+        description: ""
+
+      - name: payment_type
+        data_type: varchar
+        description: ""
+
+      - name: payment_installments
+        data_type: number
+        description: ""
+
+      - name: payment_value
+        data_type: FLOAT
+        description: ""
